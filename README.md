@@ -32,7 +32,7 @@ created:timestamp
 
 table: 
 
-rank | First Name, Last Name  | percentage range
+rank | first, last nane  | percentage range
 ---- | ---------------------- | ----------------
 1 | example example | 75 - 90 %
 2 | example example | 60 - 75 %
