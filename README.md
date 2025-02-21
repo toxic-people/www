@@ -25,11 +25,17 @@ If at least 9 other similar (treshold tbd) reposts are known all 10 articles wil
 Ratings will be updated in KV for display on the landing page
 
 ## Landing page (SPA)
+
 title: Toxic People
+
 created:timestamp
+
 table: rank / First Name, Last Name / percentage range
+
 author: model in use
+
 upload: input / submit / capcha
+
 footer: email - github
 
 
