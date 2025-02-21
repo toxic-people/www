@@ -1,49 +1,38 @@
-# www
-Toxic People Website
+# sv
 
-This project is 'inspired' by the recent 2nd election of Donald Trump in the US and the worldwide chaos and risk to world peace this event caused.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-We aim to use large AI models (LLM) like Chat GTP 4 to analyse web content and tweets to meassure their toxicity level.
+## Creating a project
 
-The site will post the top 10 authors of articles found on the web with frequent and high levels of toxicity and the toxity level given by the model
+If you're seeing this, you've probably already done this step. Congrats!
 
-The site will be completly AI driven without any human censorship using one of the top 5 ranking AI models. The model in use will be noted as author of the site. 
+```bash
+# create a new project in the current directory
+npx sv create
 
-We will provide an upload function (humans only, no bots) to submit links to our web crawler.
+# create a new project in my-app
+npx sv create my-app
+```
 
-The website will be build in Svelte. The site will use Cloudflare D1 to store links history and Cloudflare Workflows to run Langchain Agents to meassure toxicity of posts.
+## Developing
 
-Landing page showing the top 10 most toxic behaving authors will be served from cache in KV.
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-## Architecture
-Link entry will allow any posting a url to Queue in Cloudflare protected by captcha.
-Crawler will fetch submissions once at midnight triggered by cron London time. 
-Article well be summarized and compared to known articles using embeddings and Vectorize.
-Window will be aprox. 1 week, tbd.
-If at least 9 other similar (treshold tbd) reposts are known all 10 articles will be rated.
+```bash
+npm run dev
 
-Ratings will be updated in KV for display on the landing page
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-## Landing page (SPA)
+## Building
 
-title: Toxic People
+To create a production version of your app:
 
-created:timestamp
+```bash
+npm run build
+```
 
-table: 
+You can preview the production build with `npm run preview`.
 
-rank | first, last nane  | country | percentage range
----- | ---------------------- | ----------------  | -------
-1 | example example | example | 75 - 90 %
-2 | example example | example | 60 - 75 %
-..
-10 | example example | example | 50- 60 %
-
-author: model in use
-
-upload: input / submit / capcha
-
-footer: email - github
-
-
-
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
