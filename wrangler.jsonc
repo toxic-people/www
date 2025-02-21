@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "www",
+	"name": "toxic-www",
 	"compatibility_date": "2025-02-14",
 	"pages_build_output_dir": ".svelte-kit/cloudflare",
 	"observability": {
@@ -27,7 +27,7 @@
    * Environment Variables
    * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
    */
-  // "vars": { "MY_VARIABLE": "production_value" },
+  // "vars": { "SECRET_TURNSTYLE_KEY": "production_value" },
   /**
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/

@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@svelte-put/cloudflare-turnstile':
+        specifier: ^1.1.1
+        version: 1.1.1(svelte@5.20.2)
+      '@types/cloudflare-turnstile':
+        specifier: ^0.2.2
+        version: 0.2.2
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.20250214.0
@@ -711,6 +718,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@svelte-put/cloudflare-turnstile@1.1.1':
+    resolution: {integrity: sha512-tH8OKOigNmduLQstvvIyMrgOckp3apkKUn+W0FH0kAoCk68WJm5qbAYsXjAGT1Bx1k1AKzFuwRul51XKWedscA==}
+    peerDependencies:
+      svelte: ^5.1.0
+
   '@sveltejs/adapter-auto@4.0.0':
     resolution: {integrity: sha512-kmuYSQdD2AwThymQF0haQhM8rE5rhutQXG4LNbnbShwhMO4qQGnKaaTy+88DuNSuoQDi58+thpq8XpHc1+oEKQ==}
     peerDependencies:
@@ -745,6 +757,9 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
       vite: ^6.0.0
+
+  '@types/cloudflare-turnstile@0.2.2':
+    resolution: {integrity: sha512-3Yf7b1Glci+V2bFWwWBbZkRgTuegp7RDgNTOG4U0UNPB9RV4AWvwqg2/qqLff8G+SwKFNXoXvTkqaRBZrAFdKA==}
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
@@ -2037,6 +2052,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.34.8':
     optional: true
 
+  '@svelte-put/cloudflare-turnstile@1.1.1(svelte@5.20.2)':
+    dependencies:
+      svelte: 5.20.2
+
   '@sveltejs/adapter-auto@4.0.0(@sveltejs/kit@2.17.2(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.20.2)(vite@6.1.1))(svelte@5.20.2)(vite@6.1.1))':
     dependencies:
       '@sveltejs/kit': 2.17.2(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.20.2)(vite@6.1.1))(svelte@5.20.2)(vite@6.1.1)
@@ -2088,6 +2107,8 @@ snapshots:
       vitefu: 1.0.5(vite@6.1.1)
     transitivePeerDependencies:
       - supports-color
+
+  '@types/cloudflare-turnstile@0.2.2': {}
 
   '@types/cookie@0.6.0': {}
 
