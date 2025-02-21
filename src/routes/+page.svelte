@@ -4,24 +4,24 @@
 	import { turnstile } from '@svelte-put/cloudflare-turnstile';
 
 	// Stores
-	const urlSubmit = writable('https://test.com');
+
 	const message = writable('');
 	const error = writable('');
 	const darkMode = writable(false);
 	const timestamp = writable(new Date().toLocaleString());
 	const aimodel = 'OpenAI GPT-4';
 	let tokenSubmit = $state('non');
+	let urlSubmit = $state('');
 
 	const send = async () => {
 		message.set('');
 		error.set('');
-		alert(tokenSubmit);
-		if (!$urlSubmit.startsWith('https://')) {
+		if (!urlSubmit.startsWith('https://')) {
 			error.set('Invalid URL');
 			return;
 		}
 
-		const body = { url: urlSubmit, token: tokenSubmit };
+		const body = { urlSubmit: urlSubmit, token: tokenSubmit };
 		try {
 			const response = await fetch('https://api.toxicpeople.org/0/add', {
 				body: JSON.stringify(body),
@@ -60,17 +60,6 @@
 		const savedDarkMode = localStorage.getItem('darkMode') === 'true';
 		darkMode.set(savedDarkMode);
 		document.documentElement.classList.toggle('dark', savedDarkMode);
-
-		//@ts-ignore
-		turnstile.render('#cf-turnstile', {
-			sitekey: '0x4AAAAAAA9xb3JXc6U5zRsDS9ft_I3UA88',
-			callback: function (token: string) {
-				tokenSubmit = token;
-				alert(token);
-				console.log(`Challenge Success ${token}`);
-			}
-		});
-		alert('mounted');
 	});
 
 	// Toggle Dark Mode
@@ -115,10 +104,11 @@
 
 	<div>
 		<label for="url-input">Add:</label>
-		<input id="url-input" type="text" placeholder="https://" bind:value={$urlSubmit} />
+		<input id="url-input" type="text" placeholder="https://" bind:value={urlSubmit} />
 		<button onclick={send} type="button">Add</button>
 	</div>
 
+	<br />
 	<!-- Cloudflare Turnstile -->
 	<div
 		use:turnstile
