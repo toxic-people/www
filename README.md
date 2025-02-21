@@ -32,12 +32,12 @@ created:timestamp
 
 table: 
 
-rank | first, last nane  | percentage range
----- | ---------------------- | ----------------
-1 | example example | 75 - 90 %
-2 | example example | 60 - 75 %
+rank | first, last nane  | country | percentage range
+---- | ---------------------- | ----------------  | -------
+1 | example example | example | 75 - 90 %
+2 | example example | example | 60 - 75 %
 ..
-10 | example example | 50- 60 %
+10 | example example | example | 50- 60 %
 
 author: model in use
 
