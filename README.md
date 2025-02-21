@@ -30,7 +30,14 @@ title: Toxic People
 
 created:timestamp
 
-table: rank / First Name, Last Name / percentage range
+table: 
+
+rank | First Name, Last Name  | percentage range
+---- | ---------------------- | ----------------
+1 | example example | 75 - 90 %
+2 | example example | 60 - 75 %
+..
+10 | example example | 50- 60 %
 
 author: model in use
 
