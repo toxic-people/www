@@ -82,16 +82,19 @@
 </script>
 
 <div class="container">
-	<div class="title">Toxic People</div>
-	<div class="teaser">
-		<img class="finger" src="/handL.png" alt="finger" height="20" />
-		Entfant Terribles of the Internet: Fearless or just Toxic?
-		<img class="finger" src="/hand.png" alt="finger" height="20" />
-		&nbsp;&nbsp;&nbsp;
+	<div class="title">
+		<img class="logo" src="/favicon.png" alt="logo" height="17" />&nbsp;&nbsp;Toxic People &nbsp;
+		&nbsp; &nbsp;
 		<div class="toggle">
 			{#if $darkMode}<Moon onclick={toggleDarkMode} size={15} />{/if}
 			{#if !$darkMode}<Sun onclick={toggleDarkMode} size={15} />{/if}
 		</div>
+	</div>
+	<div class="teaser">
+		<img class="finger" src="/handL.png" alt="finger" height="20" />&nbsp; Entfant Terribles of the
+		Internet: Fearless or just Toxic?&nbsp;
+		<img class="finger" src="/hand.png" alt="finger" height="20" />
+		&nbsp;&nbsp;&nbsp;
 	</div>
 	<br />
 	<table>
@@ -100,7 +103,7 @@
 				<th>Rank</th>
 				<th>Name</th>
 				<th>Country</th>
-				<th>Percentage</th>
+				<!--<th>Percentage</th>-->
 			</tr>
 		</thead>
 		<tbody>
@@ -109,7 +112,7 @@
 					<td>{person.rank}</td>
 					<td>{person.name}</td>
 					<td>{person.country}</td>
-					<td>{person.rating}</td>
+					<!---<td>{person.rating}</td>>-->
 				</tr>
 			{/each}
 		</tbody>
@@ -127,7 +130,7 @@
 
 	<div>
 		<input class="link" id="url-input" type="text" placeholder="https://" bind:value={urlSubmit} />
-		<button class=" blue" onclick={send} type="button">Add Link</button>
+		<button class=" blue" onclick={send} type="button">Add</button>
 	</div>
 
 	<br />
@@ -164,7 +167,9 @@
 		height: 25px;
 		display: inline-block;
 		font-size: 14px;
-
+		border-radius: 8px;
+	}
+	.logo {
 		border-radius: 8px;
 	}
 	.model {
@@ -181,6 +186,9 @@
 		top: 12px;
 	}
 	.title {
+		display: flex;
+		justify-content: center;
+		align-self: center;
 		color: yellowgreen;
 		font-size: 35px;
 		font-family: 'Jockey One', serif;
@@ -188,6 +196,8 @@
 	}
 	.teaser {
 		display: flex;
+		justify-content: center;
+		align-self: center;
 		color: orange;
 		font-size: 18px;
 		font-family: 'Roboto', serif;
