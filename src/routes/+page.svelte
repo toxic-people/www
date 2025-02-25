@@ -7,11 +7,23 @@
 	const message = writable('');
 	const error = writable('');
 	const darkMode = writable(false);
-	const timestamp = writable(new Date().toLocaleString());
+	var timestamp = writable(new Date().toLocaleString());
 	const aimodel = 'OpenAI GPT-4';
 
 	let tokenSubmit = $state('non');
 	let urlSubmit = $state('');
+
+	type People = {
+		rank: number;
+		name: string;
+		country: string;
+		wikipediaUrl: string;
+	};
+
+	type Render = {
+		people: People[];
+		created: number;
+	};
 
 	type Person = {
 		rank: number;
@@ -20,7 +32,7 @@
 		rating: number;
 	};
 
-	let toxicPeople: Array<Person> = $state([]);
+	let toxicPeople: Array<People> = $state([]);
 
 	const send = async () => {
 		message.set('');
@@ -52,14 +64,15 @@
 
 	// Initialize dark mode
 	onMount(async () => {
-		const uri = 'https://api.toxicpeople.org/0/get/MAIN';
+		const uri = 'https://api.toxicpeople.org/0/get/MAIN_NEW';
 		try {
 			const response = await fetch(uri);
 			if (!response.ok) {
 				throw new Error(`Response status: ${response.status}`);
 			}
-
-			toxicPeople = await response.json();
+			const render: Render = (await response.json()) as Render;
+			toxicPeople = render.people;
+			timestamp.set(new Date(render.created).toLocaleDateString());
 		} catch (error) {
 			//@ts-ignore
 			console.error(error.message);
@@ -110,7 +123,7 @@
 			{#each toxicPeople as person}
 				<tr>
 					<td>{person.rank}</td>
-					<td>{person.name}</td>
+					<td><a target="_blank" href={person.wikipediaUrl}>{person.name}</a></td>
 					<td>{person.country}</td>
 					<!---<td>{person.rating}</td>>-->
 				</tr>
