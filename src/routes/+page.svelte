@@ -264,8 +264,8 @@
 	}
 
 	a {
-		color: #777777;
 		text-decoration: none;
+		color: var(--text-color);
 	}
 
 	.toggle {
